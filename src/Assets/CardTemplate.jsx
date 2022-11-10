@@ -1,18 +1,26 @@
-import React from 'react'
+import React from "react"
 import "../App.css"
+import LoadingImage from "./LoadingImage/LoadingImage.gif"
 
-const CardTemplate = ({book_image, title}) => {
-
-
+const CardTemplate = ({ book_image, title, author, loading }) => {
   return (
-    <div>
-       <div>
-            <img src={book_image} alt={title} className="book_image"/>
+    <div className="card">
+      {loading ? (
+        <div className="loading">
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        <div>
+          <img src={book_image} alt={title} className="book_image" />
 
-            <div>
-                <h2 className='title'>{title}</h2>
-            </div>
-       </div>
+          <div className="cardContent">
+            <b>
+              <h3 className="title">{title}</h3>
+            </b>
+            <p>Author: {author}</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
